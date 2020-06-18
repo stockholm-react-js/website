@@ -31,6 +31,14 @@ module.exports = {
         //boolean to set if classname prefix should have its element and component-name.
         displayName: true,
       },
+      resolve: 'gatsby-source-prismic-graphql',
+      options: {
+        repositoryName: 'web-sthlm-reactjs', // (REQUIRED, replace with your own)
+        accessToken: 'MC5YdW5lZWhRQUFQTUdwRXBC.77-977-977-9bkx577-9Me-_vWrvv73vv71_77-9CCdV77-977-977-9Ku-_ve-_ve-_ve-_ve-_ve-_ve-_vXUWbCE', // (optional API access token)
+        path: '/preview', // (optional preview path. Default: /preview)
+        previews: false, // (optional, activated Previews. Default: false)
+        omitPrismicScript: true // removes preview functionality, great to avoid rendering jquery and bootstrap. 
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
