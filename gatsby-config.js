@@ -1,3 +1,5 @@
+require(`dotenv`).config({ path: `.env.${process.env.NODE_ENV}` });
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -33,8 +35,8 @@ module.exports = {
       },
       resolve: 'gatsby-source-prismic-graphql',
       options: {
-        repositoryName: 'web-sthlm-reactjs', // (REQUIRED, replace with your own)
-        accessToken: 'MC5YdW5lZWhRQUFQTUdwRXBC.77-977-977-9bkx577-9Me-_vWrvv73vv71_77-9CCdV77-977-977-9Ku-_ve-_ve-_ve-_ve-_ve-_ve-_vXUWbCE', // (optional API access token)
+        repositoryName: 'sthlm-react-meetup', // (REQUIRED, replace with your own)
+        accessToken: `${process.env.API_KEY}`, // (optional API access token)
         path: '/preview', // (optional preview path. Default: /preview)
         previews: false, // (optional, activated Previews. Default: false)
         omitPrismicScript: true // removes preview functionality, great to avoid rendering jquery and bootstrap. 
