@@ -1,8 +1,12 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import tw from 'twin.macro'
+import styled from 'styled-components'
+import ReactLogo from '../components/reactLogo'
 import Layout from "../components/layout"
-import Image from "../components/image"
+import StartSection from '../components/startSection'
 import SEO from "../components/seo"
+
 
 export const data = graphql`
 query {
@@ -17,20 +21,15 @@ query {
   }
 }
 `;
+
+
 const IndexPage = ({ data }) => {
   console.log(data)
   return (
-    < Layout >
+    <Layout>
       <SEO title="Home" />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </Layout >
+      <StartSection />
+    </Layout>
   )
 }
 
