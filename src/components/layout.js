@@ -4,6 +4,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import tw from 'twin.macro'
 import styled from 'styled-components'
 
+import GlobalStyle from '../../globalStyle'
+
 const Container = styled.div`
 ${tw`h-screen w-screen bg-gray-200`}
 `;
@@ -21,6 +23,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <GlobalStyle />
       {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <Container>
         {children}
