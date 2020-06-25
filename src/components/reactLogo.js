@@ -16,8 +16,8 @@ const rotate = keyframes`
 const Img = styled.img`
 ${tw`m-auto`}
 animation: ${rotate} 20s linear infinite;
-height: 30vmin;
-width: 30vmin;
+height: 25vmin;
+width: 25vmin;
 `;
 
 const ReactLogo = () => (

@@ -7,8 +7,9 @@ import styled from 'styled-components'
 import GlobalStyle from '../../globalStyle'
 
 const Container = styled.div`
-${tw`h-screen w-screen bg-gray-200`}
+${tw`h-screen w-screen`}
 `;
+
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
