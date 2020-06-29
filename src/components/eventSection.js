@@ -8,16 +8,16 @@ import { RichText, Date } from 'prismic-reactjs'
 const ContentWrapper = styled.div`
 ${tw`sm:flex sm:px-10 justify-center max-w-screen-xl`}
 
-& article {
-  ${tw`p-5 sm:p-0 w-full sm:w-1/2`}
+ article {
+  ${tw`p-5 sm:p-0 w-full`}
 }
 
-& img {
-  ${tw`sm:pl-5 w-full sm:w-1/2`}
+ img {
+  ${tw`sm:pl-5 w-full h-full`}
   object-fit: cover;
   object-position: center center;
 }
-& h1 {
+ h1 {
   ${tw`py-1`}
   font-weight: bold;
   font-size: 1.5rem;
@@ -67,18 +67,23 @@ const EventSection = () => {
 
   return (
     <ContentWrapper>
-      <article>
-        <Head>/next event</Head>
-        <RichText render={doc.node.name} />
-        <MonoParagraph>Date: {formattedTimestamp} </MonoParagraph>
-        <br />
-        <div>
+
+      <div>
+        <article>
+          <Head>/next event</Head>
+          <RichText render={doc.node.name} />
+          <MonoParagraph>Date: {formattedTimestamp} </MonoParagraph>
+          <br />
           <RichText render={doc.node.info} />
           <br />
           <MonoParagraph>Hosted By: {doc.node.host[0].text}</MonoParagraph>
-        </div>
-      </article>
-      <img src={doc.node.image.url}></img>
+        </article>
+      </div>
+
+      <div>
+        <img src={doc.node.image.url}></img>
+      </div>
+
     </ContentWrapper>
   )
 }
