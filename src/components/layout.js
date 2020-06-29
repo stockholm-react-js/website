@@ -7,7 +7,6 @@ import styled from 'styled-components'
 import GlobalStyle from '../../globalStyle'
 
 const Container = styled.div`
-${tw`h-screen w-screen`}
 `;
 
 

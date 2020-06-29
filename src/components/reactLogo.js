@@ -1,6 +1,6 @@
 import React from 'react'
 import tw from 'twin.macro'
-import Logo from '../assets/logo/react-logo.svg'
+import Logo from '../assets/images/react-logo.svg'
 import styled, { keyframes } from 'styled-components'
 
 const rotate = keyframes`
