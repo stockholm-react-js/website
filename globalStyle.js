@@ -15,16 +15,18 @@ body {
 h1 {
   font-size: 1rem;
   font-family: 'PT Mono';
+  letter-spacing: 1.2px;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
 * {
-   margin: 0;
-   padding: 0; 
-   box-sizing: border-box;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0; 
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @font-face {

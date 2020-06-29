@@ -2,14 +2,14 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import tw from 'twin.macro'
 import styled from 'styled-components'
-import { RichText } from 'prismic-reactjs'
+import { RichText, Date } from 'prismic-reactjs'
 
 
 const ContentWrapper = styled.div`
-${tw`sm:flex px-5 sm:px-10 justify-center max-w-screen-xl`}
+${tw`sm:flex sm:px-10 justify-center max-w-screen-xl`}
 
 & article {
-  ${tw`w-full sm:w-1/2`}
+  ${tw`p-5 sm:p-0 w-full sm:w-1/2`}
 }
 
 & img {
@@ -17,40 +17,65 @@ ${tw`sm:flex px-5 sm:px-10 justify-center max-w-screen-xl`}
   object-fit: cover;
   object-position: center center;
 }
+& h1 {
+  ${tw`py-1`}
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #a6a6a6;
+}
 `;
 
 const Head = styled.p`
-${tw`mb-10`}
+${tw`mb-3`}
 font-family: 'PT Mono';
-font-weight: 0.8rem;
+`;
+
+const MonoParagraph = styled.p`
+font-family: 'PT Mono'; 
+font-size: 0.8rem;
 `;
 
 const EventSection = () => {
   const data = useStaticQuery(graphql`
   query {
-    prismic {
-      allEvents {
-        edges {
-          node {
-            name
-            info
-            image
-          }
+  prismic {
+    allEvents {
+      edges {
+        node {
+          info
+          name
+          host
+          date
+          image
         }
       }
     }
   }
+}
   `);
 
   const doc = data.prismic.allEvents.edges.slice(0, 1).pop()
-  console.log(doc)
+  const timestamp = Date(doc.node.date)
+
+  let formattedTimestamp = Intl.DateTimeFormat('en-SE', {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(timestamp).toString();
+
   return (
     <ContentWrapper>
       <article>
         <Head>/next event</Head>
         <RichText render={doc.node.name} />
+        <MonoParagraph>Date: {formattedTimestamp} </MonoParagraph>
+        <br />
         <div>
           <RichText render={doc.node.info} />
+          <br />
+          <MonoParagraph>Hosted By: {doc.node.host[0].text}</MonoParagraph>
         </div>
       </article>
       <img src={doc.node.image.url}></img>

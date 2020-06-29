@@ -9,7 +9,7 @@ import InfoSection from '../components/infoSection'
 import SEO from "../components/seo"
 
 const Section = styled.section`
-${tw`h-screen w-screen flex justify-center items-center`}
+${tw`min-h-screen sm:h-screen flex justify-center items-center`}
 `;
 
 const IndexPage = ({ data }) => {
