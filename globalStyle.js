@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import PTMono from './src/assets/font/PTMono-Regular.ttf';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -12,8 +13,8 @@ body {
 }
 
 h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1rem;
+  font-family: 'PT Mono';
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -25,6 +26,13 @@ h1 {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
 }
+
+@font-face {
+  font-family: 'PT Mono';
+  font-weight: normal; 
+  src: url(${PTMono});
+}
+
 `;
 
 export default GlobalStyle

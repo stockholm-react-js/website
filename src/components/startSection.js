@@ -6,6 +6,7 @@ import ArrowDown from '../assets/images/Arrow-Down.svg'
 
 const Hero = styled.h1`
 ${tw`mt-5 text-center`}
+font-family: 'PT Mono';
 `;
 
 const Wrapper = styled.div`
