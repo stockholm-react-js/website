@@ -6,10 +6,6 @@ import styled from 'styled-components'
 
 import GlobalStyle from '../../globalStyle'
 
-const Container = styled.div`
-`;
-
-
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -25,14 +21,14 @@ const Layout = ({ children }) => {
     <>
       <GlobalStyle />
       {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-      <Container>
+      <div>
         {children}
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
-      </Container>
+      </div>
     </>
   )
 }
