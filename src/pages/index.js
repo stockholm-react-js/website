@@ -13,7 +13,7 @@ ${tw`min-h-screen sm:h-screen flex justify-center items-center`}
 `;
 
 const IndexPage = ({ data }) => {
-  console.log(data)
+
   return (
     <Layout>
       <SEO title="Home" />

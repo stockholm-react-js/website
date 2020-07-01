@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import tw from 'twin.macro'
 import styled from 'styled-components'
-import { RichText, Date } from 'prismic-reactjs'
-
+import { RichText } from 'prismic-reactjs'
 
 const ContentWrapper = styled.div`
 ${tw`sm:flex sm:px-10 justify-center max-w-screen-xl`}
@@ -35,7 +34,36 @@ font-family: 'PT Mono';
 font-size: 0.8rem;
 `;
 
+const TextContent = ({ event, timeStamp }) => {
+  return (
+    <>
+      <div>
+        <article>
+          <Head>/next event</Head>
+          <RichText render={event.node.name} />
+          <MonoParagraph>Date: {timeStamp}</MonoParagraph>
+          <br />
+          <RichText render={event.node.info} />
+          <br />
+          <MonoParagraph>Hosted By: {event.node.host[0].text}</MonoParagraph>
+        </article>
+      </div>
+    </>
+  )
+}
+const EventImage = ({ event }) => {
+  return (
+    <div>
+      <img src={event.node.image.url}></img>
+    </div>
+  )
+}
+
+
 const EventSection = () => {
+  const [eventIndex, setEventIndex] = useState(null)
+  const [timeStamp, setTimeStamp] = useState('')
+
   const data = useStaticQuery(graphql`
   query {
   prismic {
@@ -52,39 +80,54 @@ const EventSection = () => {
     }
   }
 }
-  `);
+`);
 
-  const doc = data.prismic.allEvents.edges.slice(0, 1).pop()
-  const timestamp = Date(doc.node.date)
+  useEffect(() => {
+    const allDoc = data.prismic.allEvents.edges
+    let nearestEvent = function (dates) {
+      let currentDate = new Date().getTime()
 
-  let formattedTimestamp = Intl.DateTimeFormat('en-SE', {
-    year: "numeric",
-    month: "short",
-    day: "2-digit",
-    hour: "numeric",
-    minute: "2-digit",
-  }).format(timestamp).toString();
+      let nearest = Infinity
+      let winner = -1
+
+      dates.forEach(function (data, index) {
+        let eventDates = new Date(data.node.date).getTime()
+        let distance = Math.abs(eventDates - currentDate)
+
+        if (eventDates >= currentDate && (eventDates < new Date(nearest) || distance < nearest)) {
+          nearest = distance
+          winner = index
+        }
+      })
+      return winner
+    }
+    setEventIndex(nearestEvent(allDoc))
+  }, [])
+
+  const event = data.prismic.allEvents.edges[eventIndex]
+
+  useEffect(() => {
+    if (!event) return;
+    const timestamp = new Date(event.node.date)
+    let formattedTimestamp = Intl.DateTimeFormat('en-SE', {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "numeric",
+      minute: "2-digit",
+    }).format(timestamp).toString();
+    setTimeStamp(formattedTimestamp)
+  }, [event])
 
   return (
-    <ContentWrapper>
-
-      <div>
-        <article>
-          <Head>/next event</Head>
-          <RichText render={doc.node.name} />
-          <MonoParagraph>Date: {formattedTimestamp} </MonoParagraph>
-          <br />
-          <RichText render={doc.node.info} />
-          <br />
-          <MonoParagraph>Hosted By: {doc.node.host[0].text}</MonoParagraph>
-        </article>
-      </div>
-
-      <div>
-        <img src={doc.node.image.url}></img>
-      </div>
-
-    </ContentWrapper>
+    <>
+      {event ? (
+        <ContentWrapper>
+          <TextContent event={event} timeStamp={timeStamp} />
+          <EventImage event={event} />
+        </ContentWrapper >
+      ) : null}
+    </>
   )
 }
 

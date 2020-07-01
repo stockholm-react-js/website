@@ -1,9 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql, useStaticQuery } from "gatsby"
-import tw from 'twin.macro'
-import styled from 'styled-components'
-
 import GlobalStyle from '../../globalStyle'
 
 const Layout = ({ children }) => {
