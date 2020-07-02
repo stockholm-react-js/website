@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import PTMono from './src/assets/font/PTMono-Regular.ttf';
+import MadeDillan from './src/assets/font/made-dillan.woff';
+import MadeDillan2 from './src/assets/font/made-dillan.woff2';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -32,9 +34,14 @@ h1 {
 @font-face {
   font-family: 'PT Mono';
   font-weight: normal; 
-  src: url(${PTMono});
+  src: url(${PTMono}) format('truetype');
 }
 
+@font-face {
+  font-family: 'Made Dillan';
+  font-weight: normal;
+  src: url(${MadeDillan}) format('woff'), url(${MadeDillan2}) format('woff2');
+}
 `;
 
 export default GlobalStyle

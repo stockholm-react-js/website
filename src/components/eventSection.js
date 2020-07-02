@@ -7,8 +7,8 @@ import { RichText } from 'prismic-reactjs'
 const ContentWrapper = styled.div`
 ${tw`sm:flex sm:px-10 justify-center max-w-screen-xl`}
 
- article {
-  ${tw`p-5 sm:p-0 w-full`}
+  article {
+  ${tw`sm:p-5 sm:pr-5 w-full`}
 }
 
  img {
@@ -22,15 +22,18 @@ ${tw`sm:flex sm:px-10 justify-center max-w-screen-xl`}
   font-size: 1.5rem;
   border-bottom: 1px solid #a6a6a6;
 }
+div {
+  ${tw`flex-1`}
+}
 `;
 
 const Head = styled.p`
-${tw`mb-3`}
+${ tw`mb-3`}
 font-family: 'PT Mono';
 `;
 
 const MonoParagraph = styled.p`
-font-family: 'PT Mono'; 
+font-family: 'PT Mono';
 font-size: 0.8rem;
 `;
 
@@ -65,7 +68,7 @@ const EventSection = () => {
   const [timeStamp, setTimeStamp] = useState('')
 
   const data = useStaticQuery(graphql`
-  query {
+query {
   prismic {
     allEvents {
       edges {

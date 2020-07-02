@@ -7,17 +7,22 @@ const rotate = keyframes`
   from {
     transform: rotate(0deg);
   }
-  
+
   to {
     transform: rotate(360deg);
   }
 `;
 
 const Img = styled.img`
-${tw`m-auto`}
+${tw`m-auto absolute`}
+top: -100px;
+right: -100px;
 animation: ${rotate} 20s linear infinite;
-height: 25vmin;
-width: 25vmin;
+height: 60vmax;
+width: 60vmax;
+max-height: 99vh;
+max-width: 99vh;
+z-index: -1;
 `;
 
 const ReactLogo = () => (
