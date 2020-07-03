@@ -2,6 +2,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql, useStaticQuery } from "gatsby"
 import GlobalStyle from '../../globalStyle'
+import styled from 'styled-components'
+import tw from 'twin.macro'
+
+const Footer = styled.div`
+${tw`px-5 py-2 text-sm`}
+font-family: 'PT Mono';
+`;
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -20,11 +27,9 @@ const Layout = ({ children }) => {
       {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <div>
         {children}
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer>
+          © {new Date().getFullYear()} Stockholm ReactJS Meetup
+        </Footer>
       </div>
     </>
   )

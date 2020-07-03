@@ -6,7 +6,7 @@ import { RichText } from 'prismic-reactjs'
 
 const ContentWrapper = styled.div`
 ${tw`sm:flex sm:px-10 justify-center max-w-screen-xl`}
-
+min-height: 50vh;
  & article {
   ${tw`sm:p-5 sm:pr-5 w-full`}
 }
@@ -19,13 +19,8 @@ ${tw`sm:flex sm:px-10 justify-center max-w-screen-xl`}
  & h1 {
   ${tw`py-1`}
   font-weight: bold;
-  font-size: 1.5rem;
   border-bottom: 1px solid #a6a6a6;
 }
-& div {
-  ${tw`flex-1`}
-}
-
 `;
 
 const Head = styled.p`
@@ -34,14 +29,21 @@ font-family: 'PT Mono';
 `;
 
 const MonoParagraph = styled.p`
+${tw`text-sm sm:text-base`}
 font-family: 'PT Mono';
-font-size: 0.8rem;
+`;
+
+const TextContentWrapper = styled.div`
+${tw`p-5 sm:p-0 flex-1`}
+`;
+const EventImageWrapper = styled.div`
+${tw`flex-1 sm:order-2`}
 `;
 
 const TextContent = ({ event, timeStamp }) => {
   return (
     <>
-      <div>
+      <TextContentWrapper>
         <article>
           <Head>/next event</Head>
           <RichText render={event.node.name} />
@@ -51,15 +53,16 @@ const TextContent = ({ event, timeStamp }) => {
           <br />
           <MonoParagraph>Hosted By: {event.node.host[0].text}</MonoParagraph>
         </article>
-      </div>
+      </TextContentWrapper>
     </>
   )
 }
 const EventImage = ({ event }) => {
   return (
-    <div>
+    <EventImageWrapper>
       <img src={event.node.image.url}></img>
-    </div>
+      <div></div>
+    </EventImageWrapper>
   )
 }
 
@@ -127,8 +130,8 @@ query {
     <>
       {event ? (
         <ContentWrapper>
-          <TextContent event={event} timeStamp={timeStamp} />
           <EventImage event={event} />
+          <TextContent event={event} timeStamp={timeStamp} />
         </ContentWrapper >
       ) : null}
     </>

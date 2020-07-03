@@ -5,8 +5,7 @@ import ReactLogo from './reactLogo'
 import ArrowDown from '../assets/images/Arrow-Down.svg'
 
 const Hero = styled.h1`
-${tw`mt-5`}
-font-size: 3rem;
+${tw`mt-5 text-2xl sm:text-4xl px-12 md:text-5xl sm:px-10 text-center sm:text-left`}
 font-family: 'Made Dillan';
 `;
 
@@ -16,21 +15,21 @@ ${tw`absolute bottom-0 mb-6`}
 
 const AboutWrapper = styled.div`
 & h2 {
+  ${tw`px-12`}
   font-family: 'PT Mono';
   font-size: 1.5rem;
 }
 & p {
+  ${tw`px-12`}
   font-size: 1.2rem;
-  width: 40vw;
+  ${tw`text-lg sm:text-xl md:text-2xl`}
 }
 `;
 
-const Img = styled.img`
-`;
 
 const Arrow = () => (
   <ArrowWrapper>
-    <Img src={ArrowDown} alt='Arrow pointing downwards' />
+    <img src={ArrowDown} alt='Arrow pointing downwards' />
   </ArrowWrapper>
 )
 

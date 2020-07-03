@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import PTMono from './src/assets/font/PTMono-Regular.ttf';
 import MadeDillan from './src/assets/font/made-dillan.woff';
 import MadeDillan2 from './src/assets/font/made-dillan.woff2';
+import tw from 'twin.macro';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -15,11 +16,15 @@ body {
 }
 
 h1 {
-  font-size: 1rem;
+  ${tw`text-xl lg:text-2xl`}
   font-family: 'PT Mono';
   letter-spacing: 1.2px;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+p {
+  ${tw`text-base sm:text-lg lg:text-xl`}
 }
 
 * {
