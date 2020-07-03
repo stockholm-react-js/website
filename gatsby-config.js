@@ -8,11 +8,19 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    /* `gatsby-plugin-postcss` */,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        //boolean to set if classname prefix should have its element and component-name.
+        displayName: true,
       },
     },
     `gatsby-transformer-sharp`,
@@ -28,11 +36,8 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        //boolean to set if classname prefix should have its element and component-name.
-        displayName: true,
-      },
+    },
+    {
       resolve: 'gatsby-source-prismic-graphql',
       options: {
         repositoryName: 'sthlm-react-meetup', // (REQUIRED, replace with your own)
@@ -40,7 +45,7 @@ module.exports = {
         path: '/preview', // (optional preview path. Default: /preview)
         previews: false, // (optional, activated Previews. Default: false)
         omitPrismicScript: true // removes preview functionality, great to avoid rendering jquery and bootstrap. 
-      }
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
