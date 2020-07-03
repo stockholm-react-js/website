@@ -7,24 +7,25 @@ import { RichText } from 'prismic-reactjs'
 const ContentWrapper = styled.div`
 ${tw`sm:flex sm:px-10 justify-center max-w-screen-xl`}
 
-  article {
+ & article {
   ${tw`sm:p-5 sm:pr-5 w-full`}
 }
 
- img {
+ & img {
   ${tw`sm:pl-5 w-full h-full`}
   object-fit: cover;
   object-position: center center;
 }
- h1 {
+ & h1 {
   ${tw`py-1`}
   font-weight: bold;
   font-size: 1.5rem;
   border-bottom: 1px solid #a6a6a6;
 }
-div {
+& div {
   ${tw`flex-1`}
 }
+
 `;
 
 const Head = styled.p`
