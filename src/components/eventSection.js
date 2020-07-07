@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import parseISO from 'date-fns/parseISO'
 import tw from 'twin.macro'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import Button from '../components/button'
+import { linkResolver } from '../utils/linkResolver'
 
 const ContentWrapper = styled.div`
 ${tw`sm:flex justify-center max-w-screen-xl`}
@@ -47,21 +48,25 @@ display: flex;
 
 const TextContent = ({ event, timeStamp }) => {
   const handleClick = () => console.log('test')
-
+  console.log(event)
   return (
     <>
       <TextContentWrapper>
         <article>
           <Head>/next event</Head>
-          <RichText render={event.node.name} />
+          <Link to={linkResolver(event.node._meta)}>
+            <RichText render={event.node.name} />
+          </Link>
           <MonoParagraph>Date: {timeStamp}</MonoParagraph>
           <br />
           <RichText render={event.node.info} />
           <br />
           <MonoParagraph>Hosted By: {event.node.host[0].text}</MonoParagraph>
           <ButtonWrapper>
-            <Button
-              label='Read more' handleClick={handleClick} />
+            <Link to={linkResolver(event.node._meta)}>
+              <Button
+                label='Read more' handleClick={handleClick} />
+            </Link>
             <Button
               label='More upcoming events' handleClick={handleClick} />
           </ButtonWrapper>
@@ -74,7 +79,6 @@ const EventImage = ({ event }) => {
   return (
     <EventImageWrapper>
       <img src={event.node.image.url}></img>
-      <div></div>
     </EventImageWrapper>
   )
 }
@@ -97,6 +101,11 @@ query {
           host
           date
           image
+          _meta {
+            id
+            uid
+            type
+          }
         }
       }
     }

@@ -42,10 +42,16 @@ module.exports = {
       options: {
         repositoryName: 'sthlm-react-meetup', // (REQUIRED, replace with your own)
         accessToken: `${process.env.API_KEY}`, // (optional API access token)
-        path: '/preview', // (optional preview path. Default: /preview)
+        pages: [{
+          type: 'Event',
+          match: '/event/:uid',
+          path: '/event',
+          component: require.resolve('./src/templates/event.js')
+        }],
         previews: false, // (optional, activated Previews. Default: false)
-        omitPrismicScript: true // removes preview functionality, great to avoid rendering jquery and bootstrap. 
-      },
+        path: '/preview',
+        omitPrismicScript: true, // removes preview functionality, great to avoid rendering jquery and bootstrap. 
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
