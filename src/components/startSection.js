@@ -1,9 +1,9 @@
 import React from 'react'
 import tw from 'twin.macro'
 import styled from 'styled-components'
-import ReactLogo from './reactLogo'
+/* import ReactLogo from './reactLogo' */
 import ArrowDown from '../assets/images/Arrow-Down.svg'
-
+import { ReactLogo } from '../components/animation'
 const Hero = styled.h1`
 ${tw`mt-5 text-3xl sm:text-4xl px-6 md:text-5xl sm:px-10 text-center sm:text-left`}
 font-family: 'Made Dillan';
