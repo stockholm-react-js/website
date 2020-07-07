@@ -15,14 +15,13 @@ ${tw`absolute bottom-0 mb-6`}
 
 const AboutWrapper = styled.div`
 & h2 {
-  ${tw`px-12`}
+  ${tw`px-12 text-lg sm:text-xl md:text-3xl`}
   font-family: 'PT Mono';
-  font-size: 1.5rem;
 }
 & p {
   ${tw`px-12`}
   font-size: 1.2rem;
-  ${tw`text-lg sm:text-xl md:text-2xl`}
+  ${tw`text-base sm:text-lg md:text-2xl`}
 }
 `;
 
