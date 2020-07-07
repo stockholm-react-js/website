@@ -24,7 +24,7 @@ h1 {
 }
 
 p {
-  ${tw`text-base sm:text-lg lg:text-xl`}
+  ${tw`text-base sm:text-xl lg:text-xl`}
 }
 
 * {

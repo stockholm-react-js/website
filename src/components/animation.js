@@ -22,8 +22,6 @@ height: 150vmin;
 z-index: -1;
 `;
 
-
-
 export const ReactLogo = () => {
   const options = {
     loop: false,

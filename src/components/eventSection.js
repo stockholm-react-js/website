@@ -7,11 +7,10 @@ import { RichText } from 'prismic-reactjs'
 import Button from '../components/button'
 
 const ContentWrapper = styled.div`
-${tw`sm:flex sm:px-10 justify-center max-w-screen-xl`}
+${tw`sm:flex justify-center max-w-screen-xl`}
  & article {
   ${tw`sm:p-5 sm:pr-5 w-full`}
 }
-
  & img {
   ${tw`sm:pl-5 w-full h-full`}
   object-fit: cover;
@@ -36,13 +35,14 @@ font-family: 'PT Mono';
 const TextContentWrapper = styled.div`
 ${tw`p-5 sm:p-0 flex-1`}
 `;
+
 const EventImageWrapper = styled.div`
 ${tw`flex-1 sm:order-2`}
 `;
+
 const ButtonWrapper = styled.div`
 ${tw`pt-3 justify-between sm:justify-start`}
 display: flex;
-
 `;
 
 const TextContent = ({ event, timeStamp }) => {
@@ -61,7 +61,7 @@ const TextContent = ({ event, timeStamp }) => {
           <MonoParagraph>Hosted By: {event.node.host[0].text}</MonoParagraph>
           <ButtonWrapper>
             <Button
-              label='Attend Event' handleClick={handleClick} />
+              label='Read more' handleClick={handleClick} />
             <Button
               label='More upcoming events' handleClick={handleClick} />
           </ButtonWrapper>
