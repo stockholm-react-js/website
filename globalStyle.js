@@ -16,15 +16,19 @@ body {
 }
 
 h1 {
-  ${tw`text-xl lg:text-2xl`}
-  font-family: 'PT Mono';
+  ${tw`text-xl lg:text-3xl`}
+  font-family: 'Made Dillan';
   letter-spacing: 1.2px;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
+h2 {
+  ${tw`text-xl`}
+  font-family: 'Made Dillan';
+}
 p {
-  ${tw`text-base sm:text-xl lg:text-xl`}
+  ${tw`text-base sm:text-lg lg:text-lg`}
 }
 
 * {

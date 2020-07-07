@@ -19,7 +19,6 @@ ${tw`sm:flex justify-center max-w-screen-xl`}
 }
  & h1 {
   ${tw`py-1`}
-  font-weight: bold;
   border-bottom: 1px solid #a6a6a6;
 }
 `;
@@ -67,8 +66,10 @@ const TextContent = ({ event, timeStamp }) => {
               <Button
                 label='Read more' handleClick={handleClick} />
             </Link>
-            <Button
-              label='More upcoming events' handleClick={handleClick} />
+            <Link to='/events'>
+              <Button
+                label='More upcoming events' handleClick={handleClick} />
+            </Link>
           </ButtonWrapper>
         </article>
       </TextContentWrapper>
