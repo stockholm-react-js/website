@@ -47,7 +47,7 @@ query EventsQuery($uid: String) {
 `;
 
 const Container = styled.div`
-${tw`px-10 py-4 max-w-screen-md m-auto`}
+${tw`px-2 sm:px-10 py-4 max-w-screen-md m-auto`}
 `;
 const EventImageContainer = styled.div`
 ${tw`max-w-screen-lg m-auto`}
@@ -59,7 +59,7 @@ ${tw`m-auto max-w-screen-md`}
   ${tw`max-w-screen-md px-10`}
 }
 & h1 {
-  ${tw`text-6xl m-auto text-center max-w-screen-md`}
+  ${tw`text-3xl sm:text-4xl md:text-6xl m-auto text-center max-w-screen-md`}
   font-family: 'Made Dillan';
 }
 `;
