@@ -8,7 +8,6 @@ import Button from '../components/button'
 
 const ContentWrapper = styled.div`
 ${tw`sm:flex sm:px-10 justify-center max-w-screen-xl`}
-min-height: 50vh;
  & article {
   ${tw`sm:p-5 sm:pr-5 w-full`}
 }
@@ -29,7 +28,6 @@ const Head = styled.p`
 ${ tw`mb-3`}
 font-family: 'PT Mono';
 `;
-
 const MonoParagraph = styled.p`
 ${tw`text-sm sm:text-base`}
 font-family: 'PT Mono';
@@ -42,11 +40,12 @@ const EventImageWrapper = styled.div`
 ${tw`flex-1 sm:order-2`}
 `;
 const ButtonWrapper = styled.div`
-${tw`pt-3`}
+${tw`pt-3 justify-between sm:justify-start`}
+display: flex;
+
 `;
 
 const TextContent = ({ event, timeStamp }) => {
-
   const handleClick = () => console.log('test')
 
   return (
@@ -64,7 +63,7 @@ const TextContent = ({ event, timeStamp }) => {
             <Button
               label='Attend Event' handleClick={handleClick} />
             <Button
-              label='See more upcoming events' handleClick={handleClick} />
+              label='More upcoming events' handleClick={handleClick} />
           </ButtonWrapper>
         </article>
       </TextContentWrapper>
@@ -114,7 +113,7 @@ query {
 
       dates.forEach(function (data, index) {
         /* let eventDates = new Date(Date.parse(data.node.date)).getTime() */
-        let eventDates = parseISO(data.node.date.toString())
+        let eventDates = parseISO(data.node.date)
         let distance = Math.abs(eventDates - currentDate)
 
         if (eventDates >= currentDate && (eventDates < new Date(nearest) || distance < nearest)) {
@@ -125,8 +124,8 @@ query {
       return winner
     }
     setEventIndex(nearestEvent(allDoc))
-
   }, [])
+
   useEffect(() => {
     const event = data.prismic.allEvents.edges[eventIndex]
     setEvent(event)

@@ -9,7 +9,7 @@ import InfoSection from '../components/infoSection'
 import SEO from "../components/seo"
 
 const Section = styled.section`
-${tw`relative sm:h-screen flex justify-center items-center overflow-hidden pt-20`}
+${tw`relative flex justify-center items-center overflow-hidden pt-20`}
 min-height: 100vh;
 `;
 
@@ -19,7 +19,7 @@ ${tw`relative h-screen flex justify-center items-center overflow-hidden`}
 // create seperate section for StartSection later on. 
 //The other section - elements dont need overflow-hidden or pos relative.
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />

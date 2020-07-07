@@ -5,7 +5,7 @@ import ReactLogo from './reactLogo'
 import ArrowDown from '../assets/images/Arrow-Down.svg'
 
 const Hero = styled.h1`
-${tw`mt-5 text-2xl sm:text-4xl px-12 md:text-5xl sm:px-10 text-center sm:text-left`}
+${tw`mt-5 text-3xl sm:text-4xl px-6 md:text-5xl sm:px-10 text-center sm:text-left`}
 font-family: 'Made Dillan';
 `;
 
@@ -15,13 +15,11 @@ ${tw`absolute bottom-0 mb-6`}
 
 const AboutWrapper = styled.div`
 & h2 {
-  ${tw`px-12 text-lg sm:text-xl md:text-3xl`}
+  ${tw`px-10 text-xl sm:text-xl md:text-2xl`}
   font-family: 'PT Mono';
 }
 & p {
-  ${tw`px-12`}
-  font-size: 1.2rem;
-  ${tw`text-base sm:text-lg md:text-2xl`}
+  ${tw`px-10 text-base sm:text-lg md:text-xl sm:w-1/2`}
 }
 `;
 
