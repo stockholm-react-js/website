@@ -82,7 +82,7 @@ const EventImage = ({ event }) => {
 
 export default ({ data }) => {
   const event = data.prismic.allEvents.edges.slice(0, 1).pop()
-  console.log(event.node.name)
+  console.log(event.node.body)
   return (
     <Layout>
       <LinkContainer>

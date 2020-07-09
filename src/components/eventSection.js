@@ -47,7 +47,6 @@ display: flex;
 
 const TextContent = ({ event, timeStamp }) => {
   const handleClick = () => console.log('test')
-  console.log(event)
   return (
     <>
       <TextContentWrapper>
@@ -64,11 +63,11 @@ const TextContent = ({ event, timeStamp }) => {
           <ButtonWrapper>
             <Link to={linkResolver(event.node._meta)}>
               <Button
-                label='Read more' handleClick={handleClick} />
+                label='Read more' />
             </Link>
             <Link to='/events'>
               <Button
-                label='More upcoming events' handleClick={handleClick} />
+                label='More upcoming events' />
             </Link>
           </ButtonWrapper>
         </article>
@@ -85,37 +84,37 @@ const EventImage = ({ event }) => {
 }
 
 
-const EventSection = () => {
+const EventSection = ({ data }) => {
   const [eventIndex, setEventIndex] = useState(null)
   const [event, setEvent] = useState(null)
   const [timeStamp, setTimeStamp] = useState('')
 
 
-  const data = useStaticQuery(graphql`
-query {
-  prismic {
-    allEvents {
-      edges {
-        node {
-          info
-          name
-          host
-          date
-          image
-          _meta {
-            id
-            uid
-            type
+  /*   const data = useStaticQuery(graphql`
+  query {
+    prismic {
+      allEvents {
+        edges {
+          node {
+            info
+            name
+            host
+            date
+            image
+            _meta {
+              id
+              uid
+              type
+            }
           }
         }
       }
     }
   }
-}
-`);
+  `); */
 
   useEffect(() => {
-    const allDoc = data.prismic.allEvents.edges
+    const doc = data.prismic.allEvents.edges
     let nearestEvent = function (dates) {
       let currentDate = new Date().getTime()
       let nearest = Infinity
@@ -133,7 +132,7 @@ query {
       })
       return winner
     }
-    setEventIndex(nearestEvent(allDoc))
+    setEventIndex(nearestEvent(doc))
   }, [])
 
   useEffect(() => {

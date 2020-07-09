@@ -1,7 +1,7 @@
 import React from 'react'
 import Speaker from '../components/slices/Speaker'
 import Schedule from '../components/slices/Schedule'
-
+import Contact from '../components/slices/Contact'
 
 const PostSlices = ({ slices }) => {
   console.log(slices)
@@ -14,6 +14,9 @@ const PostSlices = ({ slices }) => {
         )
         case 'schedule': return (
           <Schedule key={index} slice={slice} />
+        )
+        case 'contact_image': return (
+          <Contact key={index} slice={slice} />
         )
         default: return
       }

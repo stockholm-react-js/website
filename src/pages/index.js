@@ -1,7 +1,7 @@
 import React from "react"
 import tw from 'twin.macro'
 import styled from 'styled-components'
-
+import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import StartSection from '../components/startSection'
 import EventSection from '../components/eventSection'
@@ -19,7 +19,53 @@ ${tw`relative h-screen flex justify-center items-center overflow-hidden`}
 // create seperate section for StartSection later on. 
 //The other section - elements dont need overflow-hidden or pos relative.
 
-const IndexPage = () => {
+
+export const query = graphql`
+query {
+  prismic {
+    allContacts {
+      edges {
+        node {
+          body {
+            ... on PRISMIC_ContactBodyContact_image {
+              type
+              fields {
+                contact_link {
+                  ... on PRISMIC__ExternalLink {
+                    _linkType
+                    url
+                  }
+                }
+                contact_logo
+              }
+            }
+          }
+          headline
+        }
+      }
+    }
+    allEvents {
+      edges {
+        node {
+          info
+          name
+          host
+          date
+          image
+          _meta {
+            id
+            uid
+            type
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+const IndexPage = ({ data }) => {
+  const contactData = data.prismic.allContacts.edges.slice(0, 1).pop()
   return (
     <Layout>
       <SEO title="Home" />
@@ -27,10 +73,10 @@ const IndexPage = () => {
         <StartSection />
       </HeroSection>
       <Section>
-        <EventSection />
+        <EventSection data={data} />
       </Section>
       <Section>
-        <InfoSection />
+        <InfoSection data={contactData} />
       </Section>
     </Layout>
   )
