@@ -8,9 +8,9 @@ import Button from '../components/button'
 import { linkResolver } from '../utils/linkResolver'
 
 const ContentWrapper = styled.div`
-${tw`sm:flex justify-center max-w-screen-xl`}
+${tw`sm:flex justify-center max-w-screen-xl p-5`}
  & article {
-  ${tw`sm:p-5 sm:pr-5 w-full`}
+  ${tw`sm:pr-5 w-full`}
 }
  & img {
   ${tw`sm:pl-5 w-full h-full`}

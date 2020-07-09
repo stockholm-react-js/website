@@ -10,20 +10,15 @@ const PostSlices = ({ slices }) => {
     const res = (() => {
       switch (slice.type) {
         case 'speaker': return (
-          <div key={index}>
-            {<Speaker slice={slice} />}
-          </div>
+          <Speaker key={index} slice={slice} />
         )
         case 'schedule': return (
-          <div key={index}>
-            {<Schedule slice={slice} />}
-          </div>
+          <Schedule key={index} slice={slice} />
         )
-
         default: return
       }
     })();
-    return res;
+    return res
   })
 }
 

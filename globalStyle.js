@@ -21,14 +21,17 @@ h1 {
   letter-spacing: 1.2px;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  color: #353535;
 }
 
 h2 {
-  ${tw`text-xl`}
+  ${tw`text-2xl py-1`}
   font-family: 'Made Dillan';
+  color: #353535;
 }
 p {
   ${tw`text-base sm:text-lg lg:text-lg`}
+  color: #353535;
 }
 
 * {
@@ -42,7 +45,7 @@ p {
 
 @font-face {
   font-family: 'PT Mono';
-  font-weight: normal; 
+  font-weight: normal;
   src: url(${PTMono}) format('truetype');
 }
 

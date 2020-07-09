@@ -47,7 +47,7 @@ query EventsQuery($uid: String) {
 `;
 
 const Container = styled.div`
-${tw`px-2 sm:px-10 py-4 max-w-screen-md m-auto`}
+${tw`sm:p-10 max-w-screen-md m-auto`}
 `;
 const EventImageContainer = styled.div`
 ${tw`max-w-screen-lg m-auto`}
@@ -64,6 +64,14 @@ ${tw`m-auto max-w-screen-md`}
 }
 `;
 
+const LinkContainer = styled.div`
+${tw`flex justify-between max-w-screen-md m-auto py-10 text-sm text-gray-800`}
+  a:hover {
+    ${tw`underline`}
+  }
+`;
+
+
 const EventImage = ({ event }) => {
   return (
     <EventImageContainer>
@@ -77,10 +85,12 @@ export default ({ data }) => {
   console.log(event.node.name)
   return (
     <Layout>
-
+      <LinkContainer>
+        <Link to="/">Home</Link>
+        <Link to="/events">See all upcoming events</Link>
+      </LinkContainer>
 
       <HeadContainer>
-        <Link to="/">back to list </Link>
         <RichText render={event.node.name} />
       </HeadContainer>
 
@@ -89,7 +99,6 @@ export default ({ data }) => {
           <RichText render={event.node.info} />
         </div>
       </Container>
-
 
       <EventImage style={{ width: '150%' }} event={event} />
 

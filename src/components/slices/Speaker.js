@@ -5,6 +5,15 @@ import tw from 'twin.macro'
 
 const Wrapper = styled.div`
 ${tw`mb-5`}
+ & p:first-of-type {
+  ${tw`text-base`}
+  font-family: 'PT Mono';
+ }
+
+ & p:last-of-type {
+   ${tw`text-lg py-1`}
+   
+ }
 `;
 
 export default ({ slice }) => {
@@ -12,8 +21,8 @@ export default ({ slice }) => {
   return (
     <Wrapper>
       <RichText render={slice.primary.title} />
-      <RichText render={slice.primary.speaker_name} />
+      <p>by {RichText.asText(slice.primary.speaker_name)}</p>
       <RichText render={slice.primary.talk_description} />
-    </Wrapper>
+    </Wrapper >
   )
 }
