@@ -2,7 +2,7 @@ import React from 'react'
 import tw from 'twin.macro'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
-import PostSlices from '../components/PostSlices'
+import Slices from '../Slices'
 
 const Wrapper = styled.div`
 ${tw`text-center`}
@@ -16,11 +16,12 @@ const ContactLinkContainer = styled.div`
 ${tw`flex justify-between px-48 py-10`}
 `;
 const InfoSection = ({ data }) => {
+  console.log(data.node.body)
   return (
     <Wrapper>
       <RichText render={data.node.headline} />
       <ContactLinkContainer>
-        <PostSlices slices={data.node.body} />
+        <Slices slices={data.node.body} />
       </ContactLinkContainer>
     </Wrapper>
   )

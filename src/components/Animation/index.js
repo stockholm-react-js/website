@@ -1,6 +1,6 @@
 import React from 'react'
 import Lottie from 'react-lottie'
-import ReactAnimation from '../assets/animations/react.json'
+import ReactAnimation from '../../assets/lottie/react.json'
 import styled, { keyframes } from 'styled-components'
 import tw from 'twin.macro'
 

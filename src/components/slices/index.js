@@ -1,13 +1,14 @@
 import React from 'react'
-import Speaker from '../components/slices/Speaker'
-import Schedule from '../components/slices/Schedule'
-import Contact from '../components/slices/Contact'
+import Speaker from './Speaker'
+import Schedule from './Schedule'
+import Contact from './Contact'
 
-const PostSlices = ({ slices }) => {
+const Slices = ({ slices }) => {
   console.log(slices)
   return slices.map((slice, index) => {
 
     const res = (() => {
+      console.log(slice.type)
       switch (slice.type) {
         case 'speaker': return (
           <Speaker key={index} slice={slice} />
@@ -25,4 +26,4 @@ const PostSlices = ({ slices }) => {
   })
 }
 
-export default PostSlices
+export default Slices

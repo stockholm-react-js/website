@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { graphql, useStaticQuery, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import parseISO from 'date-fns/parseISO'
 import tw from 'twin.macro'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
-import Button from '../components/button'
-import { linkResolver } from '../utils/linkResolver'
+import Button from '../Button'
+import { linkResolver } from '../../utils/linkResolver'
 
 const ContentWrapper = styled.div`
 ${tw`sm:flex justify-center max-w-screen-xl p-5`}
@@ -88,30 +88,6 @@ const EventSection = ({ data }) => {
   const [eventIndex, setEventIndex] = useState(null)
   const [event, setEvent] = useState(null)
   const [timeStamp, setTimeStamp] = useState('')
-
-
-  /*   const data = useStaticQuery(graphql`
-  query {
-    prismic {
-      allEvents {
-        edges {
-          node {
-            info
-            name
-            host
-            date
-            image
-            _meta {
-              id
-              uid
-              type
-            }
-          }
-        }
-      }
-    }
-  }
-  `); */
 
   useEffect(() => {
     const doc = data.prismic.allEvents.edges

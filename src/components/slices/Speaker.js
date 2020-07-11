@@ -9,15 +9,14 @@ ${tw`mb-5`}
   ${tw`text-base`}
   font-family: 'PT Mono';
  }
-
  & p:last-of-type {
    ${tw`text-lg py-1`}
    
  }
 `;
 
-export default ({ slice }) => {
-  if (!slice) return;
+const Speaker = ({ slice }) => {
+  console.log(slice)
   return (
     <Wrapper>
       <RichText render={slice.primary.title} />
@@ -26,3 +25,5 @@ export default ({ slice }) => {
     </Wrapper >
   )
 }
+
+export default Speaker

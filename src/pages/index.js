@@ -2,11 +2,11 @@ import React from "react"
 import tw from 'twin.macro'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import Layout from "../components/layout"
-import StartSection from '../components/startSection'
-import EventSection from '../components/eventSection'
-import InfoSection from '../components/infoSection'
-import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import StartSection from '../components/StartSection'
+import EventSection from '../components/EventSection'
+import InfoSection from '../components/InfoSection'
+import SEO from '../components/SEO/seo'
 
 const Section = styled.section`
 ${tw`relative flex justify-center items-center overflow-hidden pt-20`}

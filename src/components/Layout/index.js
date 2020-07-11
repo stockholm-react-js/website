@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql, useStaticQuery } from "gatsby"
-import GlobalStyle from '../../globalStyle'
+import GlobalStyle from '../../../globalStyle'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 

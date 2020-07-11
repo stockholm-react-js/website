@@ -1,10 +1,12 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import Layout from '../components/layout'
 import styled from 'styled-components'
 import tw from 'twin.macro'
-import PostSlices from '../components/PostSlices'
+
+import Layout from '../components/Layout'
+import Slices from '../components/Slices'
+import SEO from '../components/SEO/seo'
 
 export const query = graphql`
 query EventsQuery($uid: String) {
@@ -85,6 +87,7 @@ export default ({ data }) => {
   console.log(event.node.body)
   return (
     <Layout>
+      <SEO title='Event' />
       <LinkContainer>
         <Link to="/">Home</Link>
         <Link to="/events">See all upcoming events</Link>
@@ -103,7 +106,7 @@ export default ({ data }) => {
       <EventImage style={{ width: '150%' }} event={event} />
 
       <Container>
-        <PostSlices slices={event.node.body} />
+        <Slices slices={event.node.body} />
       </Container>
     </Layout >
   )

@@ -9,7 +9,6 @@ width: 50px;
 
 export default ({ slice }) => {
   if (!slice) return;
-  console.log(slice)
   const doc = slice.fields.slice(0, 1).pop()
   console.log(doc)
   return (

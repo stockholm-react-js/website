@@ -2,8 +2,8 @@ import React from 'react'
 import tw from 'twin.macro'
 import styled from 'styled-components'
 /* import ReactLogo from './reactLogo' */
-import ArrowDown from '../assets/images/Arrow-Down.svg'
-import { ReactLogo } from '../components/animation'
+import ArrowDown from '../../assets/images/Arrow-Down.svg'
+import { ReactLogo } from '../Animation'
 
 
 const Hero = styled.h1`
