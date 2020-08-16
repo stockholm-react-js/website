@@ -7,8 +7,9 @@ import { ReactLogo } from '../Animation'
 
 
 const Hero = styled.h1`
-${tw`mt-5 text-3xl sm:text-4xl px-6 md:text-6xl sm:px-10 text-center sm:text-left`}
+${tw`mt-5 sm:px-10 text-center sm:text-left`}
 font-family: 'Made Dillan';
+font-size: clamp(3em, 6vw, 6em);
 `;
 
 const ArrowWrapper = styled.div`
@@ -35,7 +36,7 @@ const Arrow = () => (
 const About = () => (
   <AboutWrapper>
     <h2>what we're about</h2>
-    <p>A group for people interested in talking about, learning more about and developing React applications together.</p>
+    <p>A meetup group for people interested in talking about, learning more about and developing React applications together.</p>
   </AboutWrapper>
 )
 
