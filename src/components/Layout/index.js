@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { graphql, useStaticQuery } from "gatsby"
+/* import { graphql, useStaticQuery } from "gatsby" */
 import GlobalStyle from '../../../globalStyle'
 import styled from 'styled-components'
 import tw from 'twin.macro'
@@ -11,15 +11,15 @@ font-family: 'PT Mono';
 `;
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  /*  const data = useStaticQuery(graphql`
+     query SiteTitleQuery {
+       site {
+         siteMetadata {
+           title
+         }
+       }
+     }
+   `) */
 
   return (
     <>

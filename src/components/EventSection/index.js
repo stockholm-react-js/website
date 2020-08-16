@@ -46,7 +46,7 @@ display: flex;
 `;
 
 const TextContent = ({ event, timeStamp }) => {
-  const handleClick = () => console.log('test')
+
   return (
     <>
       <TextContentWrapper>
@@ -109,12 +109,12 @@ const EventSection = ({ data }) => {
       return winner
     }
     setEventIndex(nearestEvent(doc))
-  }, [])
+  }, [data.prismic.allEvents.edges])
 
   useEffect(() => {
     const event = data.prismic.allEvents.edges[eventIndex]
     setEvent(event)
-  }, [eventIndex])
+  }, [eventIndex, data.prismic.allEvents.edges])
 
   useEffect(() => {
     if (!event) return;

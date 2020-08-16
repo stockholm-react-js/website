@@ -1,7 +1,6 @@
 import React from 'react'
-import { RichText } from 'prismic-reactjs'
 import styled from 'styled-components'
-import tw from 'twin.macro'
+
 
 const Img = styled.img`
 width: 50px;
