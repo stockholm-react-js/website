@@ -77,7 +77,7 @@ const TextContent = ({ event, timeStamp }) => {
 }
 const EventImage = ({ event }) => {
   return (
-    <EventImageWrapper>
+    <EventImageWrapper id='event'>
       <img src={event.node.image.url}></img>
     </EventImageWrapper>
   )

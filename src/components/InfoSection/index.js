@@ -18,7 +18,7 @@ ${tw`flex justify-between px-48 py-10`}
 const InfoSection = ({ data }) => {
   console.log(data.node.body)
   return (
-    <Wrapper>
+    <Wrapper id='contact'>
       <RichText render={data.node.headline} />
       <ContactLinkContainer>
         <Slices slices={data.node.body} />

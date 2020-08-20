@@ -13,6 +13,7 @@ html {
 body {
   background-color: #F4F3F2; /* whitesmoke */
   max-width: 100vw;
+  color: #353535;
 }
 
 h1 {
