@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 /* import { graphql, useStaticQuery } from "gatsby" */
+import Header from '../Header'
 import GlobalStyle from '../../../globalStyle'
 import styled from 'styled-components'
 import tw from 'twin.macro'
@@ -24,6 +25,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyle />
+      <Header></Header>
       {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <div>
         {children}
