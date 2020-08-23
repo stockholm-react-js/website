@@ -14,18 +14,18 @@ ${tw`flex justify-between items-center
 p-4 border-b border-gray-400 fixed top-0 left-0 right-0 z-10`}
 background-color: #F4F3F2;
 
-& ul {
+& nav {
   ${tw`flex`}
-  li {
+}
+& nav a {
     ${tw`px-3 text-sm`}
-  }
 }
 `;
 
 const Header = () => {
 
   const handleLinkClick = (e, target) => {
-    if (typeof window !== 'undefinned') {
+    if (typeof window !== 'undefined') {
       if (window.location.pathname === '/') {
         if (e) e.preventDefault()
         scrollToElement(target, {
@@ -46,29 +46,23 @@ const Header = () => {
       </StyledLink>
 
       <nav>
-        <ul>
-          <li>
-            <Link
-              to='/#event'
-              onClick={e => handleLinkClick(e, '#event')}
-            >
-              Events
+        <Link
+          to='/events'
+        /* onClick={e => handleLinkClick(e, '#event')} */
+        >
+          Events
             </Link>
-          </li>
-          <li>
-            <Link to='/'
-            >
-              Meetup Group
+
+        <Link to='/'
+        >
+          Meetup Group
             </Link>
-          </li>
-          <li>
-            <Link to='/#contact'
-              onClick={e => handleLinkClick(e, '#contact')}
-            >
-              Contact
+
+        <Link to='/#contact'
+          onClick={e => handleLinkClick(e, '#contact')}
+        >
+          Contact
             </Link>
-          </li>
-        </ul>
       </nav>
     </StyledHeader>
   )

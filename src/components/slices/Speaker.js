@@ -22,7 +22,7 @@ const Speaker = ({ slice }) => {
       <RichText render={slice.primary.title} />
       <p>by {RichText.asText(slice.primary.speaker_name)}</p>
       <RichText render={slice.primary.talk_description} />
-    </Wrapper >
+    </Wrapper>
   )
 }
 

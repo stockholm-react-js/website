@@ -27,6 +27,7 @@ const Head = styled.p`
 ${ tw`mb-3`}
 font-family: 'PT Mono';
 `;
+
 const MonoParagraph = styled.p`
 ${tw`text-sm sm:text-base`}
 font-family: 'PT Mono';
