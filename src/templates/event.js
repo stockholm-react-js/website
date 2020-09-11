@@ -62,7 +62,6 @@ ${tw`m-auto max-w-screen-md`}
 }
 & h1 {
   ${tw`text-3xl sm:text-4xl md:text-6xl m-auto text-center max-w-screen-md`}
-  font-family: 'Made Dillan';
 }
 `;
 
@@ -75,6 +74,9 @@ ${tw`flex justify-between max-w-screen-md m-auto py-10 text-sm text-gray-800`}
 
 
 const EventImage = ({ event }) => {
+
+  if (!event) return null;
+
   return (
     <EventImageContainer>
       <img src={event.node.image.url}></img>
@@ -84,7 +86,8 @@ const EventImage = ({ event }) => {
 
 export default ({ data }) => {
   const event = data.prismic.allEvents.edges.slice(0, 1).pop()
-  console.log(event.node.body)
+  if (!event) return null;
+
   return (
     <Layout>
       <SEO title='Event' />

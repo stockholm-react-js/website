@@ -6,7 +6,6 @@ import { RichText } from 'prismic-reactjs'
 import { Link } from 'gatsby'
 import { linkResolver } from '../utils/linkResolver'
 import parseISO from 'date-fns/parseISO'
-import Button from '../components/Button'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO/seo.js'
 
@@ -41,7 +40,7 @@ const StyledEvent = styled.div`
 ${tw`p-4`}
 `;
 
-const MonoParagraph = styled.p`
+const Date = styled.p`
 ${tw`text-sm sm:text-base`}
 font-family: 'PT Mono';
 `;
@@ -65,7 +64,7 @@ const Event = ({ doc }) => {
               <Link to={linkResolver(event.node._meta)}>
                 <RichText render={event.node.name} />
               </Link>
-              <MonoParagraph>{formattedDate}</MonoParagraph>
+              <Date>{formattedDate}</Date>
               <RichText render={event.node.info} />
             </StyledEvent>
           )
@@ -75,9 +74,9 @@ const Event = ({ doc }) => {
   )
 }
 export default ({ data }) => {
-
   const doc = data.prismic.allEvents.edges
-  console.log(doc)
+  if (!doc) return null;
+
   return (
     <Layout>
       <SEO title='Events' />

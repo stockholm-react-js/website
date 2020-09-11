@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'gatsby'
+
 import parseISO from 'date-fns/parseISO'
 import tw from 'twin.macro'
 import styled from 'styled-components'
-import { RichText } from 'prismic-reactjs'
-import Button from '../Button'
-import { linkResolver } from '../../utils/linkResolver'
+
+import EventContent from './EventContent'
+import EventImage from './EventImage'
+import Sketch from '../Sketches'
+import SineWaveSketch from '../Sketches/SineWaveSketch'
 
 const ContentWrapper = styled.div`
-${tw`sm:flex justify-center max-w-screen-xl p-5`}
+${tw`sm:flex sm:px-10 justify-center`}
  & article {
   ${tw`sm:pr-5 w-full`}
 }
@@ -23,66 +25,15 @@ ${tw`sm:flex justify-center max-w-screen-xl p-5`}
 }
 `;
 
-const Head = styled.p`
-${ tw`mb-3`}
-font-family: 'PT Mono';
+const SketchContainer = styled.div`
+${tw`flex justify-center`}
+z-index: -100;
+margin-top: 5rem;
 `;
 
-const MonoParagraph = styled.p`
-${tw`text-sm sm:text-base`}
-font-family: 'PT Mono';
-`;
 
-const TextContentWrapper = styled.div`
-${tw`p-5 sm:p-0 flex-1`}
-`;
 
-const EventImageWrapper = styled.div`
-${tw`flex-1 sm:order-2`}
-`;
 
-const ButtonWrapper = styled.div`
-${tw`pt-3 justify-between sm:justify-start`}
-display: flex;
-`;
-
-const TextContent = ({ event, timeStamp }) => {
-
-  return (
-    <>
-      <TextContentWrapper>
-        <article>
-          <Head>/next event</Head>
-          <Link to={linkResolver(event.node._meta)}>
-            <RichText render={event.node.name} />
-          </Link>
-          <MonoParagraph>Date: {timeStamp}</MonoParagraph>
-          <br />
-          <RichText render={event.node.info} />
-          <br />
-          <MonoParagraph>Hosted By: {event.node.host[0].text}</MonoParagraph>
-          <ButtonWrapper>
-            <Link to={linkResolver(event.node._meta)}>
-              <Button
-                label='Read more' />
-            </Link>
-            <Link to='/events'>
-              <Button
-                label='More upcoming events' />
-            </Link>
-          </ButtonWrapper>
-        </article>
-      </TextContentWrapper>
-    </>
-  )
-}
-const EventImage = ({ event }) => {
-  return (
-    <EventImageWrapper id='event'>
-      <img src={event.node.image.url}></img>
-    </EventImageWrapper>
-  )
-}
 
 
 const EventSection = ({ data }) => {
@@ -130,12 +81,16 @@ const EventSection = ({ data }) => {
     setTimeStamp(formattedTimestamp)
   }, [event])
 
+
   return (
     <>
+      <SketchContainer>
+        <Sketch sketch={SineWaveSketch} />
+      </SketchContainer>
       {event ? (
         <ContentWrapper>
           <EventImage event={event} />
-          <TextContent event={event} timeStamp={timeStamp} />
+          <EventContent event={event} timeStamp={timeStamp} />
         </ContentWrapper >
       ) : null}
     </>

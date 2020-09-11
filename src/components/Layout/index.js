@@ -6,8 +6,9 @@ import GlobalStyle from '../../../globalStyle'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 
+
 const Footer = styled.div`
-${tw`px-5 py-2 text-sm`}
+${tw`pb-5 pt-10 px-10 text-xs`}
 font-family: 'PT Mono';
 `;
 
@@ -25,7 +26,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyle />
-      <Header />
+      {/* <Header /> */}
       {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <div>
         {children}

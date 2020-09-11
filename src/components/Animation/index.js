@@ -16,9 +16,11 @@ const rotate = keyframes`
 const Wrapper = styled.div`
 ${tw`m-auto absolute`}
 animation: ${rotate} 20s linear infinite;
-/* right: -300px; */
-width: 150vmin;
-height: 150vmin;
+/* right: -300px; */ 
+top: 50px;
+left: 50px;
+width: 10vmin;
+height: 10vmin;
 z-index: -1;
 `;
 

@@ -4,11 +4,11 @@ import Schedule from './Schedule'
 import Contact from './Contact'
 
 const Slices = ({ slices }) => {
-  console.log(slices)
+  if (!slices) return null;
   return slices.map((slice, index) => {
 
     const res = (() => {
-      console.log(slice.type)
+
       switch (slice.type) {
         case 'speaker': return (
           <Speaker key={index} slice={slice} />

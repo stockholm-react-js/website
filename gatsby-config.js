@@ -53,6 +53,15 @@ module.exports = {
         omitPrismicScript: true, // removes preview functionality, great to avoid rendering jquery and bootstrap. 
       }
     },
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          'poppins\:800,900',
+        ],
+        display: 'swap'
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

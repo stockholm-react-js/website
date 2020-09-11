@@ -7,9 +7,9 @@ width: 50px;
 `;
 
 export default ({ slice }) => {
-  if (!slice) return;
+  if (!slice) return null;
   const doc = slice.fields.slice(0, 1).pop()
-  console.log(doc)
+
   return (
     <div>
       <a href={doc.contact_link.url}>

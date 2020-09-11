@@ -16,7 +16,7 @@ ${tw`mb-5`}
 `;
 
 const Speaker = ({ slice }) => {
-  console.log(slice)
+  if (!slice) return null;
   return (
     <Wrapper>
       <RichText render={slice.primary.title} />

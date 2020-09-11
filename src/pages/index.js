@@ -9,16 +9,13 @@ import InfoSection from '../components/InfoSection'
 import SEO from '../components/SEO/seo'
 
 const Section = styled.section`
-${tw`relative flex justify-center items-center overflow-hidden pt-20`}
-min-height: 100vh;
+${tw`relative overflow-hidden`}
+min-height: 90vh;
 `;
 
 const HeroSection = styled.section`
 ${tw`relative h-screen flex justify-center items-center overflow-hidden`}
 `;
-// create seperate section for StartSection later on. 
-//The other section - elements dont need overflow-hidden or pos relative.
-
 
 export const query = graphql`
 query {
@@ -66,6 +63,7 @@ query {
 
 const IndexPage = ({ data }) => {
   const contactData = data.prismic.allContacts.edges.slice(0, 1).pop()
+  if (!contactData) return null;
   return (
     <Layout>
       <SEO title="Home" />
@@ -75,9 +73,9 @@ const IndexPage = ({ data }) => {
       <Section>
         <EventSection data={data} />
       </Section>
-      <Section>
+      {/* <Section>
         <InfoSection data={contactData} />
-      </Section>
+      </Section> */}
     </Layout>
   )
 }
