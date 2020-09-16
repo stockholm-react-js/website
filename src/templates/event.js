@@ -21,7 +21,9 @@ query EventsQuery($uid: String) {
           date
           _linkType
           eventlink {
-            _linkType
+            ... on PRISMIC__ExternalLink {
+              url 
+            }
           }
           body {
             ... on PRISMIC_EventBodySchedule {
@@ -50,6 +52,10 @@ query EventsQuery($uid: String) {
 
 const Container = styled.div`
 ${tw`sm:p-10 max-w-screen-md m-auto`}
+
+& a {
+  ${tw`underline`}
+}
 `;
 const EventImageContainer = styled.div`
 ${tw`max-w-screen-lg m-auto`}
@@ -85,8 +91,10 @@ const EventImage = ({ event }) => {
 }
 
 export default ({ data }) => {
+
   const event = data.prismic.allEvents.edges.slice(0, 1).pop()
   if (!event) return null;
+  console.log(event)
 
   return (
     <Layout>
@@ -110,7 +118,18 @@ export default ({ data }) => {
 
       <Container>
         <Slices slices={event.node.body} />
+        <p>
+          Attend&nbsp;
+          <a
+            href={event.node.eventlink.url}
+            target='_blank'
+            rel='noreferrer'>
+            here
+          </a>
+          .
+        </p>
       </Container>
+
     </Layout >
   )
 }

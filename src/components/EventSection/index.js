@@ -33,9 +33,6 @@ margin-top: 5rem;
 
 
 
-
-
-
 const EventSection = ({ data }) => {
   const [eventIndex, setEventIndex] = useState(null)
   const [event, setEvent] = useState(null)

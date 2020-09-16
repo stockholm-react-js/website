@@ -49,6 +49,11 @@ query {
           host
           date
           image
+          eventlink {
+            ... on PRISMIC__ExternalLink {
+              url 
+            }
+          }
           _meta {
             id
             uid
@@ -73,9 +78,6 @@ const IndexPage = ({ data }) => {
       <Section>
         <EventSection data={data} />
       </Section>
-      {/* <Section>
-        <InfoSection data={contactData} />
-      </Section> */}
     </Layout>
   )
 }

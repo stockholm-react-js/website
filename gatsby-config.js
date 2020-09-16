@@ -41,7 +41,7 @@ module.exports = {
       resolve: 'gatsby-source-prismic-graphql',
       options: {
         repositoryName: 'sthlm-react-meetup', // (REQUIRED, replace with your own)
-        accessToken: `${process.env.API_KEY}`, // (optional API access token)
+        accessToken: `${process.env.PRISMIC_KEY}`, // (optional API access token)
         pages: [{
           type: 'Event',
           match: '/event/:uid',

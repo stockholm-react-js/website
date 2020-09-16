@@ -6,13 +6,17 @@ import tw from 'twin.macro'
 import { linkResolver } from '../../utils/linkResolver'
 
 
-const Paragraph = styled.p`
+const Stamp = styled.p`
 ${tw`text-sm sm:text-base`}
 font-family: 'PT Mono';
 `;
 
 const TextContentWrapper = styled.div`
 ${tw`px-4 sm:px-0 sm:p-0 flex-1`}
+
+& a {
+  ${tw`underline`};
+}
 `;
 
 const EventTitle = styled.h2`
@@ -20,28 +24,23 @@ font-size: clamp(2rem, 4vw, 4rem);
 `;
 
 const EventInfo = styled.p`
-${tw`text-sm sm:text-base md:text-xl`}
-`;
-
-const StyledLink = styled(Link)`
-${tw`underline`}
+${tw`text-sm sm:text-base md:text-lg`}
 `;
 
 
 const EventContent = ({ event, timeStamp }) => {
+  console.log(event)
   return (
     <>
       <TextContentWrapper>
         <article>
-          <Link to={linkResolver(event.node._meta)}>
-            <EventTitle>
-              {event.node.name[0].text}
-            </EventTitle>
-          </Link>
+          <EventTitle>
+            {event.node.name[0].text}
+          </EventTitle>
 
-          <Paragraph>
+          <Stamp>
             Date: {timeStamp}
-          </Paragraph>
+          </Stamp>
           <br />
 
           <EventInfo>
@@ -49,17 +48,21 @@ const EventContent = ({ event, timeStamp }) => {
           </EventInfo>
           <br />
 
-          <Paragraph>Hosted By: {event.node.host[0].text}</Paragraph>
+          <Stamp>Hosted By: {event.node.host[0].text}</Stamp>
           <br />
 
           <p>
-            <StyledLink to={linkResolver(event.node._meta)}>
+            <Link to={linkResolver(event.node._meta)}>
               Read more
-              </StyledLink>
+              </Link>
                &nbsp;and attend&nbsp;
-              <StyledLink to='/'>
+            <a
+              href={event.node.eventlink.url}
+              target='_blank'
+              rel="noreferrer"
+            >
               here
-              </StyledLink>
+            </a>
               .
           </p>
         </article>

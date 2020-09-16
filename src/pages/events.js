@@ -20,6 +20,11 @@ query Event {
           host
           date
           image
+          eventlink {
+            ... on PRISMIC__ExternalLink {
+              url 
+            }
+          }
           _meta {
             id
             uid
