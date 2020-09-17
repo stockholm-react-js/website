@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import parseISO from 'date-fns/parseISO'
 import tw from 'twin.macro'
 import styled from 'styled-components'
-
+import { withNearestEvent } from '../../utils/withNearestEvent';
 import EventContent from './EventContent'
 import EventImage from './EventImage'
 import Sketch from '../Sketches'
@@ -40,24 +40,7 @@ const EventSection = ({ data }) => {
 
   useEffect(() => {
     const doc = data.prismic.allEvents.edges
-    let nearestEvent = function (dates) {
-      let currentDate = new Date().getTime()
-      let nearest = Infinity
-      let winner = -1
-
-      dates.forEach(function (data, index) {
-        /* let eventDates = new Date(Date.parse(data.node.date)).getTime() */
-        let eventDates = parseISO(data.node.date)
-        let distance = Math.abs(eventDates - currentDate)
-
-        if (eventDates >= currentDate && (eventDates < new Date(nearest) || distance < nearest)) {
-          nearest = distance
-          winner = index
-        }
-      })
-      return winner
-    }
-    setEventIndex(nearestEvent(doc))
+    setEventIndex(withNearestEvent(doc))
   }, [data.prismic.allEvents.edges])
 
   useEffect(() => {
@@ -81,9 +64,9 @@ const EventSection = ({ data }) => {
 
   return (
     <>
-      <SketchContainer>
+      {/* <SketchContainer>
         <Sketch sketch={SineWaveSketch} />
-      </SketchContainer>
+      </SketchContainer> */}
       {event ? (
         <ContentWrapper>
           <EventImage event={event} />

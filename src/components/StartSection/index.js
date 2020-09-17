@@ -6,7 +6,7 @@ import { ReactLogo } from '../Animation'
 import Sketch from '../Sketches';
 import SphereSketch from '../Sketches/SphereSketch'
 import MassSketch from '../Sketches/MassSketch'
-
+import WobbleSketch from '../Sketches/WobbleSketch'
 
 const SketchContainer = styled.div`
 position: absolute;
@@ -76,7 +76,7 @@ const About = () => (
 const StartSection = () => (
   <>
     <SketchContainer>
-      <Sketch sketch={MassSketch} />
+      <Sketch sketch={WobbleSketch} />
     </SketchContainer>
     <Header>
       {/* <ReactLogo /> */}
@@ -85,7 +85,7 @@ const StartSection = () => (
       </Hero>
       <About />
     </Header>
-    <Arrow />
+    {/* <Arrow /> */}
   </>
 )
 

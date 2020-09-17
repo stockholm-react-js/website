@@ -1,6 +1,3 @@
-import p5 from 'p5';
-import { push } from 'gatsby';
-
 export default function MassSketch(p5) {
 
 
@@ -8,17 +5,17 @@ export default function MassSketch(p5) {
   let MAX_PARTICLE_COUNT = 100;
   let viscosity;
   let circleValue = 350;
-  let massMultiplier = 1200;
+  let massMultiplier = 1000;
 
   p5.setup = () => {
-    if (p5.windowWidth <= 600) {
-      massMultiplier = 800;
+    if (p5.windowWidth <= 500) {
+      massMultiplier = 700;
       circleValue = 250;
     }
-    p5.createCanvas(1400, 900);
+    p5.createCanvas(p5.windowWidth, p5.windowHeight);
     p5.noStroke();
     p5.color(p5.random(100, 300), 40, 90)
-    viscosity = 0.05;
+    viscosity = 0.1;
     p5.colorMode(p5.HSB)
   }
 
@@ -27,8 +24,10 @@ export default function MassSketch(p5) {
     if (props.massMultiplier !== null) return massMultiplier = props.massMultiplier;
   }; */
 
+
+
   p5.draw = () => {
-    let bgColor = p5.color('#131313');
+    let bgColor = p5.color('#f5f5f5');
     p5.background(bgColor);
     handleInteractions();
     /* for (let j = 0; j < num; j++) {
@@ -40,7 +39,7 @@ export default function MassSketch(p5) {
     }
 
     if (particles.length < MAX_PARTICLE_COUNT) {
-      particles.push(new Particle(p5.width / 2 + p5.random(-1000, 1000) / 2, p5.height / 2 + p5.random(-1000, 1000) / 2, p5.color(p5.random(100, 300), 40, 90)))
+      particles.push(new Particle(p5.width / 2 + p5.random(-500, 500), p5.height / 2 + p5.random(-500, 500), p5.color(p5.random(100, 300), 40, 100)))
     }
   }
 
@@ -50,8 +49,8 @@ export default function MassSketch(p5) {
     this.xVel = 0;
     this.yVel = 0;
     this.mass = p5.random(0.002, 0.05);
-    /* this.velocity = p5.createVector(p5.random(-1, 5), p5.random(-1, -5));
-    this.acceleration = p5.createVector(0, 0.0005); */
+    this.velocity = p5.createVector(p5.random(-1, 10), p5.random(-1, -10));
+    this.acceleration = p5.createVector(0, 0.0005);
     this.colour = c;
 
     // moves the particle
@@ -65,7 +64,6 @@ export default function MassSketch(p5) {
       p5.fill(this.colour)
       p5.ellipse(this.xPos, this.yPos, this.mass * massMultiplier, this.mass * massMultiplier)
       //mass 150
-
     };
   }
   /* Particle.prototype.update = function () {

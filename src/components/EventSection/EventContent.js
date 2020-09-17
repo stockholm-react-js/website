@@ -24,7 +24,7 @@ font-size: clamp(2rem, 4vw, 4rem);
 `;
 
 const EventInfo = styled.p`
-${tw`text-sm sm:text-base md:text-lg`}
+${tw`text-sm sm:text-base md:text-xl`}
 `;
 
 

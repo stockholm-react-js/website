@@ -17,9 +17,9 @@ html {
 }
 
 body {
-  background-color: #131313; /* whitesmoke */
+  background-color: whitesmoke; /* whitesmoke */
   max-width: 100vw;
-  color: #F5F5F5;
+  color: #131313;
 }
 
 h1 {
