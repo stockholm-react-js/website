@@ -1,64 +1,76 @@
 import React from "react"
 import tw from 'twin.macro'
 import styled from 'styled-components'
-import { graphql } from 'gatsby'
 import Layout from "../components/Layout"
-import StartSection from '../components/StartSection'
-import EventSection from '../components/EventSection'
 import SEO from '../components/SEO/seo'
 
-const Section = styled.section`
-${tw`relative overflow-hidden`}
-margin-top: 5rem;
-min-height: 70vh;
-`;
 
 const HeroSection = styled.section`
 ${tw`relative h-screen flex justify-center items-center overflow-hidden`}
 `;
 
-export const query = graphql`
-query {
-  prismic {
-    allEvents {
-      edges {
-        node {
-          info
-          name
-          host
-          date
-          image
-          eventlink {
-            ... on PRISMIC__ExternalLink {
-              url 
-            }
-          }
-          _meta {
-            id
-            uid
-            type
-          }
-        }
-      }
-    }
-  }
+const Hero = styled.header`
+   
+& p {
+     ${tw`sm:text-lg md:text-3xl mb-5`}
+     width: 80%;
 }
+
+& a {
+    text-decoration: underline;
+}
+
+& h1 {
+    font-family: 'poppins';
+    font-size: clamp(2.5rem, 8vw, 8rem);
+    text-transform: uppercase; 
+}
+
 `;
 
-const IndexPage = ({ data }) => {
-  if (!data) return null
 
-  return (
-    <Layout>
-      <SEO title="Home" />
-      <HeroSection>
-        <StartSection />
-      </HeroSection>
-      <Section>
-        <EventSection data={data} />
-      </Section>
-    </Layout>
-  )
+
+
+export default () => {
+
+    return (
+        <Layout>
+            <SEO title="Home" />
+            <Hero>
+                <h1>
+                    <span>Stockholm</span>
+                    <br />
+                    React JS Meetup
+                </h1>
+                <p>A meetup group for people interested in talking about, learning more about and developing React applications together.</p>
+                <p>We're always looking for speakers and sponsors. Feel free to contact us through&nbsp;
+                    <a
+                        href='https://www.facebook.com/groups/603541263829425'
+                        target='_blank'
+                        rel="noreferrer"
+                    >
+                        Facebook
+                    </a>
+
+                    &nbsp;,&nbsp;
+
+                    <a href='mailto: stockholm.react.meetup@gmail.com'>
+                        Email
+                    </a>
+
+                    &nbsp;or at our&nbsp;
+
+                    <a href='https://www.meetup.com/Stockholm-ReactJS-Meetup'
+                        target='_blank'
+                        rel="noreferrer"
+                    >
+                        Meetup Group
+                    </a>
+                    .
+
+                </p>
+            </Hero>
+        </Layout >
+    )
 }
 
-export default IndexPage

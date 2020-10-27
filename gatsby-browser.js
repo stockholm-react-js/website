@@ -6,7 +6,3 @@
 
 // You can delete this file if you're not using it
 import 'tailwindcss/dist/base.css'
-const { registerLinkResolver } = require('gatsby-source-prismic-graphql');
-const { linkResolver } = require('./src/utils/linkResolver.js');
-
-registerLinkResolver(linkResolver);

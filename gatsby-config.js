@@ -38,22 +38,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-prismic-graphql',
-      options: {
-        repositoryName: 'sthlm-react-meetup', // (REQUIRED, replace with your own)
-        accessToken: `${process.env.PRISMIC_KEY}`, // (optional API access token)
-        pages: [{
-          type: 'Event',
-          match: '/event/:uid',
-          path: '/event',
-          component: require.resolve('./src/templates/event.js')
-        }],
-        previews: false, // (optional, activated Previews. Default: false)
-        path: '/preview',
-        omitPrismicScript: true, // removes preview functionality, great to avoid rendering jquery and bootstrap. 
-      }
-    },
-    {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
