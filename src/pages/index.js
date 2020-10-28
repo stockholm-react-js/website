@@ -13,13 +13,15 @@ const HeroSection = styled.section`
 `;
 
 const Hero = styled.header`
-
+display: flex;
+flex-direction: column;
+justify-content: center;
 & p {
      ${tw`
-     text-lg sm:text-2xl md:text-2xl lg:text-3xl
      w-full md:w-full xl:w-9/12 mb-2
      `}
-     
+     font-size: clamp(1.2rem, 2vw, 1.5rem);
+     /* text-lg sm:text-2xl md:text-2xl lg:text-3xl */
 }
 
 & a {
@@ -28,12 +30,14 @@ const Hero = styled.header`
 
 & h1 {
     font-family: 'poppins';
-    font-size: clamp(2.4rem, 8vw, 8.7rem);
-    text-transform: uppercase; 
+    font-size: clamp(2.6rem, 8vw, 8rem);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
 }
 
 & span {
-    white-space: nowrap;
+    ${tw`whitespace-normal sm:whitespace-no-wrap`}
+    display: block;
 }
 
 `;
@@ -49,37 +53,39 @@ export default () => {
             <Hero>
                 <h1>
                     <span>Stockholm</span>
-                    <br />
                     <span>React JS Meetup</span>
                 </h1>
-                <p>A meetup group for people interested in talking about, learning more about and developing React applications together.</p>
-                <p>We're always looking for speakers and sponsors. Feel free to contact us through&nbsp;
+                <div>
+                    <p>A meetup group for people interested in talking about, learning more about and developing React applications together.</p>
+                    <p>We're always looking for speakers and sponsors. Feel free to contact us through&nbsp;
                     <a
-                        href='https://www.facebook.com/groups/603541263829425'
-                        target='_blank'
-                        rel="noreferrer"
-                    >
-                        Facebook
+                            href='https://www.facebook.com/groups/603541263829425'
+                            target='_blank'
+                            rel="noreferrer"
+                        >
+                            Facebook
                     </a>
 
                     &nbsp;,&nbsp;
 
                     <a href='mailto: stockholm.react.meetup@gmail.com'>
-                        Email
+                            Email
                     </a>
 
                     &nbsp;or at our&nbsp;
 
                     <a href='https://www.meetup.com/Stockholm-ReactJS-Meetup'
-                        target='_blank'
-                        rel="noreferrer"
-                    >
-                        Meetup Group
+                            target='_blank'
+                            rel="noreferrer"
+                        >
+                            Meetup Group
                     </a>
                     .
 
                 </p>
+                </div>
             </Hero>
+
         </Layout >
     )
 }
