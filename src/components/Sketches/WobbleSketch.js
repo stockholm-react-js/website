@@ -5,6 +5,10 @@ export default function WobbleSketch(p5) {
     p5.colorMode(p5.HSB);
 
   }
+  p5.windowResized = () => {
+    p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+    console.log(p5.constrain(p5.windowWidth * 0.001, 0, 1))
+  }
 
   p5.draw = () => {
     p5.blendMode(p5.BLEND);
@@ -31,7 +35,7 @@ export default function WobbleSketch(p5) {
     for (let i = 0; i < vNnum + 5; i++) {
       let ind = i % vNnum;
       let rad = dr * ind;
-      let r = p5.height * 0.3 + p5.noise(p5.frameCount / nm + ind) * p5.height * 0.1 + p5.sin(p5.frameCount / sm + ind) * p5.height * 0.005;
+      let r = p5.height * p5.constrain(p5.windowWidth * 0.001, 0, 1) / 3 + p5.noise(p5.frameCount / nm + ind) * p5.height * 0.1 + p5.sin(p5.frameCount / sm + ind) * p5.height * 0.005;
       p5.curveVertex(p5.cos(rad) * r, p5.sin(rad) * r);
     }
     p5.endShape();

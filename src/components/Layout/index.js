@@ -14,21 +14,20 @@ opacity: 1;
 `;
 
 const Main = styled.main`
+    ${tw`
+        w-screen sm:w-full md:w-9/12 lg:w-9/12 xl:w-9/12
+        px-2 sm:px-10 md:px-0 xl:px-12
+    `}
     display: grid;
     place-items: center;
     height: 100vh;
-    width: 80rem;
     margin: auto;
-    padding: 0 3.5rem;
-
 `;
 
 const SketchContainer = styled.div`
 position: absolute;
 z-index: -100;
 `;
-
-
 
 
 const Layout = ({ children }) => {

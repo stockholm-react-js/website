@@ -6,14 +6,20 @@ import SEO from '../components/SEO/seo'
 
 
 const HeroSection = styled.section`
-${tw`relative h-screen flex justify-center items-center overflow-hidden`}
+    ${tw`
+        relative h-screen flex 
+        justify-center items-center overflow-hidden
+    `}
 `;
 
 const Hero = styled.header`
-   
+
 & p {
-     ${tw`sm:text-lg md:text-3xl mb-5`}
-     width: 80%;
+     ${tw`
+     text-lg sm:text-2xl md:text-2xl lg:text-3xl
+     w-full md:w-full xl:w-9/12 mb-2
+     `}
+     
 }
 
 & a {
@@ -22,8 +28,12 @@ const Hero = styled.header`
 
 & h1 {
     font-family: 'poppins';
-    font-size: clamp(2.5rem, 8vw, 8rem);
+    font-size: clamp(2.4rem, 8vw, 8.7rem);
     text-transform: uppercase; 
+}
+
+& span {
+    white-space: nowrap;
 }
 
 `;
@@ -40,7 +50,7 @@ export default () => {
                 <h1>
                     <span>Stockholm</span>
                     <br />
-                    React JS Meetup
+                    <span>React JS Meetup</span>
                 </h1>
                 <p>A meetup group for people interested in talking about, learning more about and developing React applications together.</p>
                 <p>We're always looking for speakers and sponsors. Feel free to contact us through&nbsp;
