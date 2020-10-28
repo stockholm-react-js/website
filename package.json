@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "The web of Famiglia Santoni",
+  "description": "The web of Stockholm React JS Meetup.",
   "version": "0.1.0",
   "author": "contact@joakim.pink",
   "dependencies": {
