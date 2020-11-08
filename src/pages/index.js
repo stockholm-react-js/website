@@ -5,35 +5,27 @@ import Layout from "../components/Layout"
 import SEO from '../components/SEO/seo'
 
 
-const HeroSection = styled.section`
-    ${tw`
-        relative h-screen flex 
-        justify-center items-center overflow-hidden
-    `}
-`;
-
 const Hero = styled.header`
-display: flex;
-flex-direction: column;
-justify-content: center;
-& p {
-     ${tw`
-     w-full md:w-full xl:w-9/12 mb-2
-     `}
-     font-size: clamp(1.2rem, 2vw, 1.5rem);
-     /* text-lg sm:text-2xl md:text-2xl lg:text-3xl */
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & p {
+        ${tw`
+            w-full md:w-full xl:w-9/12 mb-2
+        `}
+        font-size: clamp(1rem, 2vw, 1.5rem);
+    }
 
-& a {
-    text-decoration: underline;
-}
+    & a {
+        text-decoration: underline;
+    }
 
-& h1 {
-    font-family: 'poppins';
-    font-size: clamp(2.6rem, 8vw, 8rem);
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-}
+    & h1 {
+        font-family: 'poppins';
+        font-size: clamp(2.6rem, 8vw, 8rem);
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+    }
 
 & span {
     ${tw`whitespace-normal sm:whitespace-no-wrap`}
@@ -41,8 +33,6 @@ justify-content: center;
 }
 
 `;
-
-
 
 
 export default () => {
@@ -59,6 +49,14 @@ export default () => {
                     <p>A meetup group for people interested in talking about, learning more about and developing React applications together.</p>
                     <p>We're always looking for speakers and sponsors. Feel free to contact us through&nbsp;
                     <a
+                            href='https://github.com/orgs/stockholm-react-js/'
+                            target='_blank'
+                            rel="noreferrer"
+                        >
+                            Github
+                    </a>
+                        ,&nbsp;
+                     <a
                             href='https://www.facebook.com/groups/603541263829425'
                             target='_blank'
                             rel="noreferrer"
@@ -66,7 +64,7 @@ export default () => {
                             Facebook
                     </a>
 
-                    &nbsp;,&nbsp;
+                    ,&nbsp;
 
                     <a href='mailto: stockholm.react.meetup@gmail.com'>
                             Email
@@ -85,7 +83,6 @@ export default () => {
                 </p>
                 </div>
             </Hero>
-
         </Layout >
     )
 }
