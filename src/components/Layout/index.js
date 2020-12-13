@@ -2,31 +2,37 @@ import React from "react"
 import PropTypes from "prop-types"
 import GlobalStyle from '../../../globalStyle'
 import styled from 'styled-components'
-import tw from 'twin.macro'
 import Animation from '../Sketches/Animation'
 import Sketch from '../Sketches';
 import Logo from '../../assets/images/Logo_base.png'
 
 const Main = styled.main`
-    ${tw`
-        grid
-        w-full sm:w-9/12 md:w-9/12 lg:w-9/12 xl:w-9/12
-        px-2 sm:px-0 
-        m-auto 
-    `}
-    height: calc(100vh - 132px);
+    display: grid;
     place-items: center;
+    width: 100%;
+    padding: 0rem 0.5rem;
+    margin: auto;
+    height: calc(100vh - 132px);
+    @media (min-width: 640px) {
+        width: 75%;
+        padding: 0;
+    }    
 `;
 
 const Img = styled.img`
-${tw`sm:w-20 w-12 h-auto m-2 sm:m-4`}
-    /* width: 100px; */
+    width: 3rem;
+    height: auto;
+    margin: 0.5rem;
     border-radius: 50%;
+    @media (min-width: 640px) {
+        width: 5rem;
+        margin: 1rem;
+    }
 `;
 
 const SketchContainer = styled.div`
-position: absolute;
-z-index: -100;
+    position: absolute;
+    z-index: -100;
 `;
 
 

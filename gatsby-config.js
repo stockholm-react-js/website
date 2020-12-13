@@ -1,9 +1,8 @@
-require(`dotenv`).config({ path: `.env.${process.env.NODE_ENV}` });
-
 module.exports = {
   siteMetadata: {
     title: 'Stockholm ReactJS Meetup',
-    description: `The web of Stockholm ReactJS Meetup.`,
+    description: `Stockholm React JS is a community of people in Stockholm interested in the web framework React.`,
+    keywords: 'React JS Meetup, stockholm, web development, meetup group, react',
     author: `joakim-roos`,
   },
   plugins: [

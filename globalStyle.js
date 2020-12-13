@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import Aileron from './src/assets/font/Aileron-Regular.woff';
-import tw from 'twin.macro';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -13,29 +12,43 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body {
-    background-color: whitesmoke; /* whitesmoke */
+    background-color: whitesmoke;
 }
 
 html {
     color: #131313;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 h1 {
-    ${tw`text-xl lg:text-3xl`}
+    font-size: 1.25rem;
     font-family: 'poppins';
     letter-spacing: 1.2px;
     line-height: 1.1;
+
+    @media (min-width: 1024px) {
+        font-size: 1.875rem;
+    }
 }
 
 h2 {
-    ${tw`text-2xl py-1`}
+    padding: 0.25rem;
+    font-size: 1.5rem;
     font-family: 'poppins';
 
 }
 
 p {
-    ${tw`text-base sm:text-lg lg:text-lg`}
+    font-size: 1rem;
     font-family: 'Aileron'; 
+
+    @media (min-width: 640px) {
+        font-size: 1.125rem;
+    }
 }
 
 @font-face {

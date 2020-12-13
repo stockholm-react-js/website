@@ -1,5 +1,4 @@
 import React from "react"
-import tw from 'twin.macro'
 import styled from 'styled-components'
 import Layout from "../components/Layout"
 import SEO from '../components/SEO/seo'
@@ -9,11 +8,14 @@ const Hero = styled.header`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     & p {
-        ${tw`
-            w-full md:w-full xl:w-9/12 mb-2
-        `}
+        width: 100%;
         font-size: clamp(1rem, 2vw, 1.5rem);
+        margin-bottom: 0.5rem;
+        @media (min-width: 1280px) {
+            width: 75%;
+        }
     }
 
     & a {
@@ -27,11 +29,13 @@ const Hero = styled.header`
         margin-bottom: 0.5rem;
     }
 
-& span {
-    ${tw`whitespace-normal sm:whitespace-no-wrap`}
-    display: block;
-}
-
+    & span {
+        white-space: normal;
+        display: block;
+        @media (min-width: 640px) {
+            white-space: nowrap;
+        }
+    }
 `;
 
 
